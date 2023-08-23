@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moca.BFF.Crosscuting.Models
+namespace Moca.BFF.External.Models
 {
     public class ApiLoginResponse
     {

@@ -1,5 +1,4 @@
-﻿using Moca.BFF.Crosscuting.Models;
-using Moca.BFF.Domain.Models.Responses;
+﻿using Moca.BFF.Domain.Models.Responses;
 using Moca.BFF.External.Models;
 using System;
 using System.Collections.Generic;

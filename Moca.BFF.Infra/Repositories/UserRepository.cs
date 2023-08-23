@@ -1,5 +1,4 @@
-﻿using Moca.BFF.Crosscuting.Models;
-using Moca.BFF.Domain.Interfaces.Repositories;
+﻿using Moca.BFF.Domain.Interfaces.Repositories;
 using Moca.BFF.Domain.Models.Requests.User;
 using Moca.BFF.Domain.Models.Responses;
 using Moca.BFF.External.Mappers;

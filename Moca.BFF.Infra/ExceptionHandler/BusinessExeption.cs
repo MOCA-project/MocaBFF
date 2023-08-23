@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moca.BFF.Crosscuting.ExceptionHandler
+namespace Moca.BFF.External.ExceptionHandler
 {
     public class BusinessException : Exception
     {

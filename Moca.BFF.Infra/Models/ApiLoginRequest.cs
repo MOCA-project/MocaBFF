@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moca.BFF.Crosscuting.Models
+namespace Moca.BFF.External.Models
 {
     public class ApiLoginRequest
     {
@@ -13,8 +13,8 @@ namespace Moca.BFF.Crosscuting.Models
 
         public ApiLoginRequest(string senha, string email)
         {
-            this.Email = email;
-            this.Senha = senha;
+            Email = email;
+            Senha = senha;
         }
     }
 }
