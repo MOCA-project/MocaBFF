@@ -1,4 +1,5 @@
-﻿using Moca.BFF.Domain.Models.Responses;
+﻿using Moca.BFF.Crosscuting.Models;
+using Moca.BFF.Domain.Models.Responses;
 using Moca.BFF.External.Models;
 using System;
 using System.Collections.Generic;
@@ -10,17 +11,19 @@ namespace Moca.BFF.External.Mappers
 {
     internal static class ToDomainUserMappings
     {
-        public static GetAllUsersResponse ToDomain(List<ApiClientListResponse> response)
+        public static AuthUserResponse LoginResponseMap(ApiLoginResponse response)
         {
-            var domain = new GetAllUsersResponse();
-            foreach (var item in response)
+
+            var domain = new AuthUserResponse()
             {
-                domain.response.Add(new GetAllUsersResponseContent
-                {
-                    Email = item.Email,
-                });
-            }
+                Email = response.Email,
+                Id = response.Id,
+                IdTipoPerfil = response.IdTipoPerfil,
+                Nome = response.Nome
+            };
+
             return domain;
+
         }
     }
 }

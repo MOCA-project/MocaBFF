@@ -18,7 +18,7 @@ namespace Moca.BFF.External
 
         public BaseHttpClient()
         {
-            string baseUrl = "https://moca-rest-service.azurewebsites.net/api";
+            string baseUrl = "https://moca-rest-service.azurewebsites.net/api/";
 
             this._httpClient = new HttpClient()
             {
