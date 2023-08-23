@@ -4,6 +4,7 @@ using Moca.BFF.Api.Configurations.IoC;
 using System.Globalization;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using Moca.BFF.Api.Configurations.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
@@ -73,6 +74,7 @@ app.UseRouting();
 app.MapControllers();
 app.UseAuthorization();
 
+app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Moca - Moca.BFF.API"));

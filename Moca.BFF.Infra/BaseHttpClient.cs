@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Moca.BFF.External.ExceptionHandler;
+using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http.Json;
 
@@ -118,19 +119,19 @@ namespace Moca.BFF.External
             }
         }
 
-        private void HandleErrorResponse(HttpResponseMessage response)
+        private static void HandleErrorResponse(HttpResponseMessage response)
         {
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
-                throw new BusinessException("Recurso não encontrado.", (int)HttpStatusCode.NotFound);
+                throw new BusinessException("Recurso não encontrado.", HttpStatusCode.NotFound);
             }
             else if (response.StatusCode == HttpStatusCode.BadRequest)
             {
-                throw new BusinessException("Requisição inválida.", (int)HttpStatusCode.BadRequest);
+                throw new BusinessException("Requisição inválida.", HttpStatusCode.BadRequest);
             }
             else
             {
-                throw new BusinessException($"Erro na requisição: {response.StatusCode}", (int)response.StatusCode);
+                throw new BusinessException($"Erro na requisição: {response.StatusCode}", response.StatusCode);
             }
         }
     }
