@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
-using Moca.BFF.Configuration.IoC;
-using Moca.BFF.Configuration.Swagger;
+using Microsoft.Extensions.DependencyInjection;
+using Moca.BFF.Api.Configurations.IoC;
+using Moca.BFF.Api.Configurations.Swagger;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
+
 //Controllers
 builder.Services.AddControllers();
 //Dependency Injections
@@ -32,4 +34,5 @@ var cultureInfo = new CultureInfo("en-US");
 cultureInfo.NumberFormat.CurrencySymbol = "R$";
 CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
 CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
 app.Run();

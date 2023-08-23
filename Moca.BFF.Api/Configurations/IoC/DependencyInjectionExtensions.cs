@@ -1,4 +1,6 @@
-﻿namespace Moca.BFF.Configuration.IoC
+﻿using Moca.BFF.Api.Configurations.IoC;
+
+namespace Moca.BFF.Api.Configurations.IoC
 {
     public static class DependencyInjectionExtensions
     {

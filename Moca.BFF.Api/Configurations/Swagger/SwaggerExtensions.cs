@@ -1,7 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 using System.Reflection;
 
-namespace Moca.BFF.Configuration.Swagger
+namespace Moca.BFF.Api.Configurations.Swagger
 {
     public static class SwaggerExtensions
     {
@@ -13,15 +13,11 @@ namespace Moca.BFF.Configuration.Swagger
                 {
                     Title = "MOCA - BFF",
                     Version = "v1",
-                    Description = "API Services",
-                    Contact = new OpenApiContact
-                    {
-                        Name = "MOCA - Money Care",
-                        Url = new Uri("https://github.com/MOCA-projecthttps://github.com/MOCA-project")
-                    }
                 });
 
-                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Moca.BFF.xml"));
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
         }
     }

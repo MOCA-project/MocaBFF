@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Moca.BFF.Controllers
+namespace Moca.BFF.Api.Controllers
 {
-    public class UserController : SampleController
+    public class UserController : BaseController
     {
         #region swagger doc
 
         /// <summary>
-        /// Reliza o logindo usuário
+        /// dasdasdsa
         /// </summary>
-        /// <response code="200">Se usuário tiver permissão</response>
+        /// <response code="200">Sucesso</response>
         /// <response code="403">Se você não tiver permissão para realizar esta ação</response>
         /// <response code="500">Erro ao executar solicitação</response>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
@@ -19,7 +19,7 @@ namespace Moca.BFF.Controllers
         #endregion swagger doc
 
         [HttpGet]
-        public async Task<IActionResult> Login()
+        public async Task<IActionResult> Obter()
         {
             return Ok();
         }

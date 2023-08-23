@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Moca.BFF.Controllers
+namespace Moca.BFF.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class SampleController : ControllerBase
+    public class BaseController : ControllerBase
     {
-
-        
 
     }
 }
