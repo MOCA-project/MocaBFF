@@ -45,7 +45,7 @@ namespace Moca.BFF.Api.Controllers
         #region swagger doc
 
         /// <summary>
-        /// Realiza login
+        /// Realiza o cadastro
         /// </summary>
         /// <response code="200">Token do usuário</response>
         /// <response code="403">Se você não tiver permissão para realizar esta ação</response>
@@ -56,11 +56,12 @@ namespace Moca.BFF.Api.Controllers
 
         #endregion swagger doc
 
-        [HttpGet("teste")]
-        public async Task<IActionResult> teste()
+        [AllowAnonymous]
+        [HttpPost("cadastrar")]
+        public async Task<IActionResult> Resigster([FromBody] RegisterUserRequest request)
         {
-            var result = this.ObterClaimsUsuario();
-            return Ok(result);
+            await _userService.Register(request);
+            return Created("", null);
         }
     }
 }

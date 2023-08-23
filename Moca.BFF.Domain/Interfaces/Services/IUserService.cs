@@ -6,5 +6,6 @@ namespace Moca.BFF.Domain.Interfaces.Services
     public interface IUserService
     {
         Task<AuthUserResponse> Login(AuthUserRequest request);
+        Task Register(RegisterUserRequest request);
     }
 }
