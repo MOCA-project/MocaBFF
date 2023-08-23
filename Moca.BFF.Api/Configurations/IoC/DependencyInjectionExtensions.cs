@@ -12,6 +12,7 @@ namespace Moca.BFF.Api.Configurations.IoC
         {
             //Services
             services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<IAuthenticationService, AuthenticationService>(); 
 
             //Repositories
             services.AddSingleton<IUserRepository, UserRepository>();
