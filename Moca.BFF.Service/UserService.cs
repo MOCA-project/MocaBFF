@@ -2,7 +2,6 @@
 using Moca.BFF.Domain.Interfaces.Services;
 using Moca.BFF.Domain.Models.Requests.User;
 using Moca.BFF.Domain.Models.Responses;
-using Moca.BFF.External.Models;
 
 namespace Moca.BFF.Service
 {

@@ -1,14 +1,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Moca.BFF.Api.Configurations.IoC;
-using Moca.BFF.Api.Configurations.Swagger;
 using System.Globalization;
 using System.Text;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json.Linq;
-using static System.Net.Mime.MediaTypeNames;
-using System.Diagnostics.Metrics;
-using System.Reflection.Metadata;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;

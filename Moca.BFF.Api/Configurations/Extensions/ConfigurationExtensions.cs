@@ -1,7 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System.Text;
-
-namespace Moca.BFF.Api.Configurations.Extensions
+﻿namespace Moca.BFF.Api.Configurations.Extensions
 {
     public static class ConfigurationExtensions
     {

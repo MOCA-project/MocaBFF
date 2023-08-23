@@ -2,13 +2,9 @@
 using Moca.BFF.Domain.Interfaces.Services;
 using Moca.BFF.Domain.Models.Requests.User;
 using Moca.BFF.Domain.Models.Responses;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Moca.BFF.Service
 {

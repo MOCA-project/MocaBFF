@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Moca.BFF.Api.Configurations.Extensions;
 using Moca.BFF.Api.Controllers.Helper;
 using Moca.BFF.Domain.Interfaces.Services;
 using Moca.BFF.Domain.Models.Requests.User;
