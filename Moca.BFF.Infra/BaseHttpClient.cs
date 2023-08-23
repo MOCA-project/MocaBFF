@@ -1,7 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using Moca.BFF.Crosscuting.ExceptionHandler;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -16,7 +18,7 @@ namespace Moca.BFF.External
 
         public BaseHttpClient()
         {
-            string baseUrl = "https://moca-rest-service.azurewebsites.net/api/";
+            string baseUrl = "https://moca-rest-service.azurewebsites.net/api";
 
             this._httpClient = new HttpClient()
             {
@@ -36,16 +38,106 @@ namespace Moca.BFF.External
                     var result = JsonConvert.DeserializeObject<T>(stringResult);
                     return result;
                 }
-                catch (Exception ex)
+                catch (JsonSerializationException ex)
                 {
-                    
-                throw new Exception("a");
-
+                    throw new Exception($"Erro na desserialização JSON: {ex.Message}");
                 }
             }
             else
             {
-                throw new Exception("a");
+                HandleErrorResponse(response);
+                return default;
+
+            }
+        }
+
+        public async Task<T> ExecutePostAsync<T>(string endpoint, object content)
+        {
+            HttpResponseMessage response = await _httpClient.PostAsJsonAsync(endpoint, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var stringResult = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    var result = JsonConvert.DeserializeObject<T>(stringResult);
+                    return result;
+                }
+                catch (JsonSerializationException ex)
+                {
+                    throw new Exception($"Erro na desserialização JSON: {ex.Message}");
+                }
+            }
+            else
+            {
+                HandleErrorResponse(response);
+                return default;
+            }
+        }
+
+        public async Task<T> ExecutePutAsync<T>(string endpoint, object content)
+        {
+            HttpResponseMessage response = await _httpClient.PutAsJsonAsync(endpoint, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var stringResult = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    var result = JsonConvert.DeserializeObject<T>(stringResult);
+                    return result;
+                }
+                catch (JsonSerializationException ex)
+                {
+                    throw new Exception($"Erro na desserialização JSON: {ex.Message}");
+                }
+            }
+            else
+            {
+                HandleErrorResponse(response);
+                return default;
+
+            }
+        }
+
+        public async Task<T> ExecuteDeleteAsync<T>(string endpoint)
+        {
+            HttpResponseMessage response = await _httpClient.DeleteAsync(endpoint);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var stringResult = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    var result = JsonConvert.DeserializeObject<T>(stringResult);
+                    return result;
+                }
+                catch (JsonSerializationException ex)
+                {
+                    throw new Exception($"Erro na desserialização JSON: {ex.Message}");
+                }
+            }
+            else
+            {
+                HandleErrorResponse(response);
+                return default;
+
+            }
+        }
+
+        private void HandleErrorResponse(HttpResponseMessage response)
+        {
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                throw new BusinessException("Recurso não encontrado.", (int)HttpStatusCode.NotFound);
+            }
+            else if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                throw new BusinessException("Requisição inválida.", (int)HttpStatusCode.BadRequest);
+            }
+            else
+            {
+                throw new BusinessException($"Erro na requisição: {response.StatusCode}", (int)response.StatusCode);
             }
         }
     }

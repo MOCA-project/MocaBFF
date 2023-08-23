@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Moca.BFF.Domain\Moca.BFF.Domain.csproj" />
-    <ProjectReference Include="..\Moca.BFF.Infra\Moca.BFF.External.csproj" />
+    <ProjectReference Include="..\Moca.BFF.Infra\Moca.BFF.Crosscuting.csproj" />
     <ProjectReference Include="..\Moca.BFF.Service\Moca.BFF.Service.csproj" />
   </ItemGroup>
 
