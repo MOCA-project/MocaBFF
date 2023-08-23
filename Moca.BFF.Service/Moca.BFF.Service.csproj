@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Moca.BFF.Domain\Moca.BFF.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

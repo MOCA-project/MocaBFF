@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using Moca.BFF.Api.Configurations.IoC;
 using Moca.BFF.Api.Configurations.Swagger;
 using System.Globalization;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Moca.BFF.Api.Controllers
+namespace Moca.BFF.Api.Controllers.Helper
 {
     [ApiController]
     [Route("[controller]")]

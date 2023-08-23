@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moca.BFF.Api", "Moca.BFF.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moca.BFF.Domain", "..\Moca.BFF.Domain\Moca.BFF.Domain.csproj", "{DF0829BB-95CB-4201-B037-A5ABF1C1073A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moca.BFF.Infra", "..\Moca.BFF.Infra\Moca.BFF.Infra.csproj", "{885D3317-0BBD-4853-9B06-A394D2016428}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moca.BFF.External", "..\Moca.BFF.Infra\Moca.BFF.External.csproj", "{885D3317-0BBD-4853-9B06-A394D2016428}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moca.BFF.Service", "..\Moca.BFF.Service\Moca.BFF.Service.csproj", "{064F79B5-D191-4202-B1E4-C2048D65F96E}"
 EndProject
