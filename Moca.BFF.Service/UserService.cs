@@ -14,7 +14,7 @@ namespace Moca.BFF.Service
         {
             _userRepository = userRepository;
         }
-        public async Task<List<User>> Login(AuthUserRequest request)
+        public async Task<GetAllUsersResponse> Login(AuthUserRequest request)
         {
             var user = await _userRepository.Login();
             return user;

@@ -30,8 +30,8 @@ namespace Moca.BFF.Api.Controllers
         [HttpGet("login")]
         public async Task<IActionResult> Login([FromQuery]AuthUserRequest request)
         {
-            var result = _userService.Login(request);
-            return Ok();
+            var result = await _userService.Login(request);
+            return Ok(result.response);
         }
     }
 }

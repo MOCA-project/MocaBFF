@@ -1,13 +1,17 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Moca.BFF.External.Models
+namespace Moca.BFF.Domain.Models.Responses
 {
-    public class ApiClientListResponse
+    public class GetAllUsersResponse
+    {
+        public List<GetAllUsersResponseContent> response = new();
+    }
+
+    public class GetAllUsersResponseContent
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -18,6 +22,5 @@ namespace Moca.BFF.External.Models
         public string Telefone { get; set; }
         public bool EnviaEmail { get; set; }
         public bool EnviaSms { get; set; }
-
     }
 }

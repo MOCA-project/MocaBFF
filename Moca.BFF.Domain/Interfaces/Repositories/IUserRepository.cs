@@ -9,6 +9,6 @@ namespace Moca.BFF.Domain.Interfaces.Repositories
 {
     public interface IUserRepository
     {
-        Task<AuthUserResponse> Login();
+        Task<GetAllUsersResponse> Login();
     }
 }
