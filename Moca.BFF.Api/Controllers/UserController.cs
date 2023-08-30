@@ -6,7 +6,6 @@ using Moca.BFF.Domain.Models.Requests.User;
 
 namespace Moca.BFF.Api.Controllers
 {
-    [Authorize]
     public class UserController : BaseController
     {
         private readonly IUserService _userService;
@@ -49,7 +48,7 @@ namespace Moca.BFF.Api.Controllers
         /// <response code="200">Token do usuário</response>
         /// <response code="403">Se você não tiver permissão para realizar esta ação</response>
         /// <response code="500">Erro ao executar solicitação</response>
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(void))]
         [ProducesResponseType(StatusCodes.Status403Forbidden, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
 
