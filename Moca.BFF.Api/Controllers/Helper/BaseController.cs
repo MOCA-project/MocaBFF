@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Moca.BFF.Api.Controllers.Helper
 {
-    [Authorize]
+    // [Authorize]
+    [AllowAnonymous]
     [ApiController]
-    [Route("[controller]")]
     public class BaseController : ControllerBase
     {
 

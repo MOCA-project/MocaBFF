@@ -45,7 +45,7 @@ namespace Moca.BFF.External
             }
         }
 
-        public async Task<T> ExecutePostAsync<T>(string endpoint, object content)
+        public async Task<T> ExecutePostAsync<T>(string endpoint, object? content)
         {
             HttpResponseMessage response = await _httpClient.PostAsJsonAsync(endpoint, content);
 
@@ -69,7 +69,7 @@ namespace Moca.BFF.External
             }
         }
 
-        public async Task<T> ExecutePutAsync<T>(string endpoint, object content)
+        public async Task<T> ExecutePutAsync<T>(string endpoint, object? content)
         {
             HttpResponseMessage response = await _httpClient.PutAsJsonAsync(endpoint, content);
 
@@ -94,9 +94,18 @@ namespace Moca.BFF.External
             }
         }
 
-        public async Task<T> ExecuteDeleteAsync<T>(string endpoint)
+        public async Task ExecuteDeleteAsync(string endpoint)
         {
             HttpResponseMessage response = await _httpClient.DeleteAsync(endpoint);
+
+            if (!response.IsSuccessStatusCode)
+                HandleErrorResponse(response);
+
+        }
+
+        public async Task<T> ExecutePatchAsync<T>(string endpoint, object? content)
+        {
+            HttpResponseMessage response = await _httpClient.PatchAsJsonAsync(endpoint, content);
 
             if (response.IsSuccessStatusCode)
             {

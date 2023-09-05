@@ -6,6 +6,8 @@ using Moca.BFF.Domain.Models.Requests.User;
 
 namespace Moca.BFF.Api.Controllers
 {
+    [Route("usuarios")]
+
     public class UserController : BaseController
     {
         private readonly IUserService _userService;
