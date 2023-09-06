@@ -100,5 +100,47 @@ namespace Moca.BFF.Api.Controllers
             var result = await _porquinhoService.PostPorquinho(request);
             return Ok(result);
         }
+
+        #region swagger doc
+
+        /// <summary>
+        /// Cria um novo porquinho
+        /// </summary>
+        /// <response code="200">Depesa cadastrada</response>
+        /// <response code="403">Se você não tiver permissão para realizar esta ação</response>
+        /// <response code="500">Erro ao executar solicitação</response>
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PorquinhoResponse))]
+        [ProducesResponseType(StatusCodes.Status403Forbidden, Type = typeof(string))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
+
+        #endregion swagger doc
+
+        [HttpGet("{idCliente}")]
+        public async Task<IActionResult> GetAll(int idCliente)
+        {
+            var result = await _porquinhoService.GetAllPorquinhosByClientId(idCliente);
+            return Ok(result);
+        }
+
+        #region swagger doc
+
+        /// <summary>
+        /// Cria um novo porquinho
+        /// </summary>
+        /// <response code="200">Depesa cadastrada</response>
+        /// <response code="403">Se você não tiver permissão para realizar esta ação</response>
+        /// <response code="500">Erro ao executar solicitação</response>
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+        [ProducesResponseType(StatusCodes.Status403Forbidden, Type = typeof(string))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
+
+        #endregion swagger doc
+
+        [HttpDelete("{idCliente}/{idPorquinho}")]
+        public async Task<IActionResult> DeletePorquinho(int idCliente, int idPorquinho)
+        {
+             await _porquinhoService.DeletePorquinho(idCliente, idPorquinho);
+            return Ok();
+        }
     }
 }

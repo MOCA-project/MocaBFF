@@ -8,6 +8,11 @@ namespace Moca.BFF.External.Repositories
     {
         protected override string ServiceName => "porquinhos";
 
+        public async Task Delete(int idCliente, int idPorquinho)
+        {
+            await ExecuteDeleteAsync($"{idCliente}/{idPorquinho}");
+        }
+
         public async Task Deposit(int clientId, int porquinhoId, decimal value)
         {
             await ExecutePutAsync<dynamic>($"adicionarValor/{clientId}/{porquinhoId}/{value}", null);
@@ -16,6 +21,12 @@ namespace Moca.BFF.External.Repositories
         public async Task FinalizePorquinho(int clientId, int porquinhoId)
         {
             await ExecutePutAsync<dynamic>($"finalizarPorquinho/{clientId}/{porquinhoId}", null);
+        }
+
+        public async Task<List<PorquinhoResponse>> GetAllPorquinhosByClientId(int idCliente)
+        {
+            var result = await ExecuteGetAsync<List<PorquinhoResponse>>(idCliente.ToString());
+            return result;
         }
 
         public async Task<PostPorquinhoResponse> PostPorquinho(CreatePorquinhoRequest request)

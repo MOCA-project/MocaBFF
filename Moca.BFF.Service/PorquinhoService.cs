@@ -14,6 +14,11 @@ namespace Moca.BFF.Service
             _porquinhoRepository = porquinhoRepository;
         }
 
+        public async Task DeletePorquinho(int idCliente, int idPorquinho)
+        {
+            await _porquinhoRepository.Delete(idCliente, idPorquinho);
+        }
+
         public async Task Deposit(int clientId, int porquinhoId, decimal value)
         {
             await _porquinhoRepository.Deposit(clientId, porquinhoId, value);
@@ -23,6 +28,12 @@ namespace Moca.BFF.Service
         {
             await _porquinhoRepository.FinalizePorquinho(clientId, porquinhoId);
 
+        }
+
+        public async Task<List<PorquinhoResponse>> GetAllPorquinhosByClientId(int idCliente)
+        {
+            var result = await _porquinhoRepository.GetAllPorquinhosByClientId(idCliente);
+            return result;    
         }
 
         public async Task<PostPorquinhoResponse> PostPorquinho(CreatePorquinhoRequest request)
