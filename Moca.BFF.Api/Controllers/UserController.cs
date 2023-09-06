@@ -6,7 +6,7 @@ using Moca.BFF.Domain.Models.Requests.User;
 
 namespace Moca.BFF.Api.Controllers
 {
-    [Route("usuarios")]
+    [Route("api/usuarios")]
 
     public class UserController : BaseController
     {

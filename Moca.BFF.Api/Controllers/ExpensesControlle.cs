@@ -1,20 +1,18 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Moca.BFF.Api.Controllers.Helper;
 using Moca.BFF.Domain.Interfaces.Services;
 using Moca.BFF.Domain.Models.Requests.Expenses;
-using Moca.BFF.Domain.Models.Requests.User;
 using Moca.BFF.Domain.Models.Responses;
 using System.Net;
 
 namespace Moca.BFF.Api.Controllers
 {
-    [Route("despesas")]
-    public class ExpensesController : BaseController
+    [Route("api/despesas")]
+    public class ExpensesControlle : BaseController
     {
         private readonly IExpensesService _expensesService;
 
-        public ExpensesController(IExpensesService expensesService )
+        public ExpensesControlle(IExpensesService expensesService )
         {
             _expensesService = expensesService;
         }

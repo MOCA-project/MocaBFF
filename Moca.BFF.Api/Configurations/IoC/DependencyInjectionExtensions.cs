@@ -14,10 +14,12 @@ namespace Moca.BFF.Api.Configurations.IoC
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<IExpensesService, ExpensesService>();
+            services.AddSingleton<IPorquinhoService, PorquinhoService>();
 
             //Repositories
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IExpensesRepository, ExpensesRepository>();
+            services.AddSingleton<IPorquinhoRepository, PorquinhoRepository>();
         }
 
         public static void AddOptions(this IServiceCollection services, IConfiguration config)
