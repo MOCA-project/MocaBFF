@@ -8,11 +8,11 @@ using System.Net;
 namespace Moca.BFF.Api.Controllers
 {
     [Route("api/despesas")]
-    public class ExpensesControlle : BaseController
+    public class ExpensesController : BaseController
     {
         private readonly IExpensesService _expensesService;
 
-        public ExpensesControlle(IExpensesService expensesService )
+        public ExpensesController(IExpensesService expensesService )
         {
             _expensesService = expensesService;
         }
