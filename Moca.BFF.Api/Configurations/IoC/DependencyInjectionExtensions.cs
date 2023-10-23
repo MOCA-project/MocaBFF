@@ -20,6 +20,7 @@ namespace Moca.BFF.Api.Configurations.IoC
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IExpensesRepository, ExpensesRepository>();
             services.AddSingleton<IPorquinhoRepository, PorquinhoRepository>();
+            services.AddSingleton<IHomeRepository, HomeRepository>();
         }
 
         public static void AddOptions(this IServiceCollection services, IConfiguration config)
