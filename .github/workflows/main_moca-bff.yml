@@ -25,10 +25,10 @@ jobs:
 
       - name: Display content of MocaBFF directory
         run: |
-           ls D:\a\MocaBFF\MocaBFF\Moca.BFF.Api
+           ls D:\a\MocaBFF\MocaBFF\Moca.BFF.Api\
           
       - name: Change to project directory
-        run: cd D:\a\MocaBFF\MocaBFF\Moca.BFF.Api
+        run: cd D:\a\MocaBFF\MocaBFF\Moca.BFF.Api\Moca.BFF.Api.sln\
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
