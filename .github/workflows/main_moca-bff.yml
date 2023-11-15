@@ -28,7 +28,7 @@ jobs:
            ls D:\a\MocaBFF\MocaBFF\Moca.BFF.Api\
           
       - name: Change to project directory
-        run: cd D:\a\MocaBFF\MocaBFF\Moca.BFF.Api\Moca.BFF.Api.sln\
+        run: cd D:\a\MocaBFF\MocaBFF\Moca.BFF.Api\
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
